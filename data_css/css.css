@@ -1,0 +1,22 @@
+
+.test1 {
+  background: url('img/symbol_middot_green.png')
+}
+
+.test2 {
+  background: url('../data_images/bird.png');
+  height:200px;
+  display:block;
+  width:350px;
+}
+
+.test3 {
+  background: url('/base64css/data_images/symbol_middot_green.png')
+}
+
+.test4 {
+  background: url('http://localhost/base64css/data_images/bird.png');
+  height:200px;
+  display:block;
+  width:350px;  
+}
