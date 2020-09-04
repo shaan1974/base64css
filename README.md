@@ -4,6 +4,19 @@ Get all ressources of css file (images,fonts...) and transform it into base64 to
 
 Exemples are in folder "test".
 
+**Quick Example :**
+
+```
+require_once "../css64/rhea_css64_class.php"; 
+
+$CSS64 = new Rhea_Css64();
+
+$CSS64->css_file = __DIR__. '/../data_css/css.css';
+$CSS64->css_minify = true;
+
+$r = $CSS64->transform();
+```
+
 1.1
 
 - Add external domain files.
