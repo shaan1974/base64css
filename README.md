@@ -17,6 +17,12 @@ $CSS64->css_minify = true;
 $r = $CSS64->transform();
 ```
 
+**Not yet supported :**
+
+@import
+
+**Versions :**
+
 1.2
 
 - Update exemples.
