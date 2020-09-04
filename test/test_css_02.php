@@ -1,10 +1,10 @@
 <?php
 
-require_once "css64/rhea_css64_class.php"; 
+require_once "../css64/rhea_css64_class.php"; 
 
 $CSS64 = new Rhea_Css64();
 
-$CSS64->css_file = str_replace("\\","/", getcwd()."/data_css/webfontkit-titillium" )."/stylesheet.css";
+$CSS64->css_file = __DIR__. '/../data_css/webfontkit-titillium/stylesheet.css';
 $CSS64->css_minify = true;
 
 $r = $CSS64->transform();

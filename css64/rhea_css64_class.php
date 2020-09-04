@@ -117,6 +117,10 @@
 
 		function transform()	
 		{
+			//	IN CASE OF LOCAL PATH WITH WINDOWS WE REPLACE THE \ WITH /
+			//
+				$this->css_file = str_replace("\\","/", $this->css_file  );
+
 			//	LOAD CSS CONTENT FILE
 			//
 				$css_content 	= file_get_contents($this->css_file);
@@ -141,7 +145,6 @@
 						if ( (strpos($urls[$cnt], "/") === 0) )
 						{						
 							$ext_ressource 	= file_get_contents( $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt] );
-							// $original_url 	= $urls[$cnt];
 							$path_parts 	= pathinfo( $original_url );
 						}
 					//
@@ -181,7 +184,6 @@
 						else
 						{
 							$new_url 			= [];
-							// $original_url 		= $urls[$cnt];
 							$urls[$cnt] 		= explode("/",$urls[$cnt]);	
 							$tmp_css_base_dir 	= explode("/",$css_base_dir);
 
@@ -202,7 +204,6 @@
 							$pop_url 		= implode("/",$new_url);
 							$base_dir 		= implode("/",$tmp_css_base_dir);
 							$ext_ressource 	= file_get_contents( $base_dir."/".$pop_url );
-							// $path_parts 	= pathinfo( $base_dir."/".implode("/",$new_url) );
 							$path_parts 	= pathinfo( $base_dir."/".$pop_url );
 						}
 
@@ -231,14 +232,6 @@
 			//
 			//	RETURN
 			//
-				/*
-				if ( $this->css_minify === true )
-				{
-					$css_content=$this->minifyCss($css_content);
-				}
-
-				return $css_content;
-				*/
 				return ( $this->css_minify === true ) ? $this->minifyCss($css_content) : $css_content;
 		}
 	}
