@@ -17,6 +17,10 @@ $CSS64->css_minify = true;
 $r = $CSS64->transform();
 ```
 
+1.2
+
+- Update exemples.
+
 1.1
 
 - Add external domain files.

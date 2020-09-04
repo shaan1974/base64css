@@ -1,18 +1,10 @@
 <?php
 	
-	/*
-		TO DO DIRECT URL LINKK
-		http://www.waza.com/test.png
-	*/
 	class Rhea_Css64
 	{
 		private $version = "1.0";
 
 		private $array_data = array(
-	        /*"CSS" 	    => "data:text/css;",*/
-	        /*"JS"		=> "data:text/javascript;",*/
-	        /*"JSON"	    => "data:text/json;",*/
-	        /*"HTML"	    => "data:text/html;",*/
 	        "OET"		=> "data:application/octet-stream;",
 	        "SVG"		=> "data:image/svg+xml;",
 	        "TTF"		=> "data:application/octet-stream;",
@@ -23,9 +15,7 @@
 	        "JPE"		=> "data:image/jpeg;",
 	        "JPEG"	    => "data:image/jpeg;",
 	        "JPG"		=> "data:image/jpeg;",
-	        /*"PDF"		=> "data:application/pdf;",*/
 	        "PNG"		=> "data:image/png;"
-	        /*"XML"		=> "data:text/xml;"*/
     	);  
 
 		public $css_file;
