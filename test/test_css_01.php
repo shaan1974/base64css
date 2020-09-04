@@ -1,7 +1,5 @@
 <?php
 
-// print($_SERVER["DOCUMENT_ROOT"]);
-
 require_once "../css64/rhea_css64_class.php"; 
 
 $CSS64 = new Rhea_Css64();
