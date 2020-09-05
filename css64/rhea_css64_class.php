@@ -29,14 +29,12 @@
 		function __construct() {}
 
 		/*
-			MINIFY CSS
+	      	some of the following functions to minimize the css-output are directly taken
+	      	from the awesome CSS JS Booster: https://github.com/Schepp/CSS-JS-Booster
+	      	all credits to Christian Schaefer: http://twitter.com/derSchepp
 		*/
-
 	    function minifyCss($css) 
 	    {
-	      // some of the following functions to minimize the css-output are directly taken
-	      // from the awesome CSS JS Booster: https://github.com/Schepp/CSS-JS-Booster
-	      // all credits to Christian Schaefer: http://twitter.com/derSchepp
 	      // remove comments
 	      $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
 	      // backup values within single or double quotes
@@ -70,13 +68,10 @@
 	    }			    
 
 		/*
-			EXTRACT URLS
-
 			http://phpcrossref.com/xref/moodle/repository/url/locallib.php.html#l698
 			https://stackoverflow.com/questions/23697813/extract-css-urls-using-preg-math
 			https://github.com/jrphub/elgoog/blob/master/extract_css_urls.php
 		*/
-
 		function extract_css_urls( $text )
 		{
 		    $urls = array();
@@ -91,16 +86,16 @@
 		 
 		    // @import '...'
 		    // @import "..."
-		    foreach ( $matches[3] as $match )
+		    /*foreach ( $matches[3] as $match )
 		        if ( !empty($match) )
-		            $urls['import'][] = preg_replace( '/\\\\(.)/u', '\\1', $match );
+		            $urls['import'][] = preg_replace( '/\\\\(.)/u', '\\1', $match );*/
 		 
 		    // @import url(...)
 		    // @import url('...')
 		    // @import url("...")
-		    foreach ( $matches[7] as $match )
+		    /*foreach ( $matches[7] as $match )
 		        if ( !empty($match) )
-		            $urls['import'][] =  preg_replace( '/\\\\(.)/u', '\\1', $match );
+		            $urls['import'][] =  preg_replace( '/\\\\(.)/u', '\\1', $match );*/
 		 
 		    // url(...)
 		    // url('...')
@@ -122,11 +117,8 @@
 			//
 				$css_content 	= file_get_contents($this->css_file);
 				$path_parts		= pathinfo( $this->css_file );
-				$current_path 	= str_replace("\\","/", getcwd() );
+				// $current_path 	= str_replace("\\","/", getcwd() );
 				$css_base_dir 	= $path_parts["dirname"];
-
-				// echo $css_base_dir;
-				// die();
 	
 			//	@IMPORT
 			//

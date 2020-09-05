@@ -2,6 +2,8 @@
 
 Get all ressources of css file (images,fonts...) and transform it into base64 to have all ressources included into the css.
 
+Also get all @import css definition file but only for the same domain.
+
 Exemples are in folder "test/".
 
 **Quick Example #1:**
@@ -33,9 +35,15 @@ $CSS64->save( __DIR__. '/../data_css_b64/css.css');
 
 **Not yet supported / Todo:**
 
-Hm.. i don't know :)
+- Method to convert hex color to Rgb
+- Method to convert Rgb color to Hex
+- Method to convert named colors to Hex/Rgb
 
 **Versions :**
+
+1.6
+
+Transit version. Test new code before delete it.
 
 1.5
 
