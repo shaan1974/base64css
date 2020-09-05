@@ -14,7 +14,6 @@
         <div id="content" class="row">
 
 			<br/>
-			<b>IN WORK.</b>
 			<?php	
 					require_once "../css64/rhea_css64_class.php"; 
 
@@ -24,12 +23,30 @@
 					$r=$CSS64->transform();										
 			?>
 
-
-			<textarea style="width:100%;height:250px;"><?php print($r); ?></textarea>
+			<div class="row">
+				<div class="col-md-6">
+					<b>BEFORE :</b>
+					<br/>
+					<br/>
+					<textarea style="width:100%;height:100%;font-size:12px"><?php echo file_get_contents(__DIR__. '/../data_css/css_with_import.css'); ?></textarea>
+				</div>
+				<div class="col-md-6">
+					<b>AFTER :</b>
+					<br/>
+					<br/>
+					<textarea style="width:100%;height:100%;font-size:12px"><?php print($r); ?></textarea>
+				</div>
+			</div>
 
 			<style>
 			<?php print($r); ?>
 			</style>
+
+			<hr/>
+			<div class="bird"></div>
+			<hr/>
+			<div class="bird2"></div>
+			<hr/>
 
 	    </div>
 

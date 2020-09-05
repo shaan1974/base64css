@@ -2,9 +2,9 @@
 
 Get all ressources of css file (images,fonts...) and transform it into base64 to have all ressources included into the css.
 
-Exemples are in folder "test".
+Exemples are in folder "test/".
 
-**Example #1:**
+**Quick Example #1:**
 
 ```
 require_once "../css64/rhea_css64_class.php"; 
@@ -17,7 +17,7 @@ $CSS64->css_minify = true;
 $r = $CSS64->transform();
 ```
 
-**Example #2:**
+**Quick Example #2:**
 
 ```
 require_once "../css64/rhea_css64_class.php"; 
@@ -33,10 +33,25 @@ $CSS64->save( __DIR__. '/../data_css_b64/css.css');
 
 **Not yet supported / Todo:**
 
-@import
-When a css is imported into the main caller, the url inside the imported css should be rewritten.
+Hm.. i don't know :)
 
 **Versions :**
+
+1.5
+
+@import work, see /test/test_css_03.php
+Just one limitation, imported css should be from the same domain.
+
+@import definition examples:
+
+```
+@import url("fineprint.css") print;
+@import url("fineprint.css") screen and (orientation:landscape);
+@import url('fineprint.css') print;
+@import url('fineprint.css') screen and (orientation:landscape);
+@import 'fineprint.css' print;
+@import 'extra_css/extra.css' screen and (orientation:landscape);
+```
 
 1.4
 

@@ -1,3 +1,21 @@
 .red {
     color: red;
 }
+
+.bird {
+    background: url('../../data_images/bird.png');
+    height: 200px;
+    display: block;
+    width: 300px;
+    background-repeat: no-repeat;
+    border: 1px solid #999;
+}
+
+.bird2 {
+    background: url('/base64css/data_images/bird.png');
+    height: 200px;
+    display: block;
+    width: 300px;
+    background-repeat: no-repeat;
+    border: 1px solid #999;
+}

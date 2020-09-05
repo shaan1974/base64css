@@ -135,10 +135,32 @@
 
 				for($cnt=0;$cnt<count($matches);$cnt++)
 				{
-					$z = str_replace( $matches[$cnt][1] , "@media", $matches[$cnt][0] );
-					$import_file = file_get_contents($css_base_dir."/".$matches[$cnt][2]);
-					$z = str_replace( ";" , "{\n\n ".$import_file."\n\n}", $z );
-					$css_content = str_replace( $matches[$cnt][0] , $z, $css_content );
+					//	CREATE VARIABLE FOR NEW MEDIA CONTAINER
+					//
+						$z = str_replace( $matches[$cnt][1] , "@media", $matches[$cnt][0] );					
+						// $import_file = file_get_contents($css_base_dir."/".$matches[$cnt][2]);
+					
+					/* --- */
+					//	GET REAL PATH
+					//
+						// echo "<br/>OLD - ".$css_base_dir."/".$matches[$cnt][2];
+						$path_parts = realpath($css_base_dir."/".$matches[$cnt][2]);
+						$path_parts = str_replace("\\","/", $path_parts  );
+						// echo "<br>NEW - (".$path_parts.")<br/>";
+					
+					//	APPLY CLASS CSS64 ON LINK FROM IMPORT
+					//
+						$CSS64_INSIDE = new Rhea_Css64();
+						$CSS64_INSIDE->css_file = $path_parts;
+						$CSS64_INSIDE->css_minify = false;
+						$import_file="\n".$CSS64_INSIDE->transform();
+
+					/* --- */
+
+					//	REPLACE THE @IMPORT DECLARATION WITH @MEDIA (XXX) AND CONTENT CSS
+					//
+						$z = str_replace( ";" , "{\n\n ".$import_file."\n\n}", $z );
+						$css_content = str_replace( $matches[$cnt][0] , $z, $css_content );
 				}
 								
 			//	EXTRACT URLS
@@ -155,9 +177,24 @@
 					//
 					//	background: url('/twig_test/data_images/symbol_middot_green.png')
 					//
+						/*
 						if ( (strpos($urls[$cnt], "/") === 0) )
 						{						
 							$ext_ressource 	= file_get_contents( $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt] );
+							$path_parts 	= pathinfo( $original_url );
+						}
+						*/
+						if ( strpos( $urls[$cnt] , "http") !== 0 )
+						{						
+							if ( strpos($urls[$cnt], "/") === 0 )
+							{
+								$urls[$cnt] = $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt];
+							}
+							else
+							{
+								$urls[$cnt] = realpath( $css_base_dir."/".$urls[$cnt] );
+							}
+							$ext_ressource 	= file_get_contents( ($urls[$cnt]) );
 							$path_parts 	= pathinfo( $original_url );
 						}
 					//
@@ -196,6 +233,8 @@
 					//	
 						else
 						{
+							//	USELESS CODE
+							/*
 							$new_url 			= [];
 							$urls[$cnt] 		= explode("/",$urls[$cnt]);	
 							$tmp_css_base_dir 	= explode("/",$css_base_dir);
@@ -218,6 +257,7 @@
 							$base_dir 		= implode("/",$tmp_css_base_dir);
 							$ext_ressource 	= file_get_contents( $base_dir."/".$pop_url );
 							$path_parts 	= pathinfo( $base_dir."/".$pop_url );
+							*/
 						}
 
 						$file_ext = strtoupper($path_parts['extension']);

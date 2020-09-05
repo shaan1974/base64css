@@ -1,5 +1,5 @@
-.white {
-    color: #FFFFFF;
+.grey {
+    color: grey;
 }
 
 @import url("fineprint.css") print;
