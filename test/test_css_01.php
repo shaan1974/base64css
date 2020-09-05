@@ -7,29 +7,23 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+<?php
+        require_once "../css64/rhea_css64_class.php"; 
+
+        $CSS64 = new Rhea_Css64();
+        $CSS64->css_file = __DIR__. '/../data_css/css.css';
+        $CSS64->css_minify = true;
+        $CSS64->transform();
+        $CSS64->save( __DIR__. '/../data_css_b64/css.css');
+?>
+
+<link rel="stylesheet" href="../data_css_b64/css.css">
+
 <BODY> 
 
     <div id="wrapper" class="container">
 
         <div id="content" class="row">
-
-        <?php
-                require_once "../css64/rhea_css64_class.php"; 
-
-                $CSS64 = new Rhea_Css64();
-                $CSS64->css_file = __DIR__. '/../data_css/css.css';
-                $CSS64->css_minify = true;
-                $r = $CSS64->transform();
-        ?>
-
-        <!--
-        [<?php echo strlen($r); ?>]
-        <textarea style="width:100%;height:250px;"><?php print($r); ?></textarea>
-        -->
-
-        <style>
-        <?php print($r); ?>
-        </style>
 
         <br/>
         <table class="table table-striped table-bordered">

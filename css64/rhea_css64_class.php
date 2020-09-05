@@ -19,7 +19,9 @@
 	        "JPEG"	    => "data:image/jpeg;",
 	        "JPG"		=> "data:image/jpeg;",
 	        "PNG"		=> "data:image/png;"
-    	);  
+		);  
+		
+		private $build_css = "";
 
 		public $css_file;
 		public $css_minify = false;
@@ -105,7 +107,7 @@
 		        if ( !empty($match) )
 		            $urls['property'][] =  preg_replace( '/\\\\(.)/u', '\\1', $match );
 		 
-		    return $urls["property"];
+			return $urls["property"];
 		}	
 
 		function transform()	
@@ -225,7 +227,14 @@
 			//
 			//	RETURN
 			//
-				return ( $this->css_minify === true ) ? $this->minifyCss($css_content) : $css_content;
+				$this->build_css = $css_content;
+				
+				return ( $this->css_minify === true ) ? $this->minifyCss($this->build_css) : $this->build_css;
+		}
+
+		function save($file)	
+		{
+			file_put_contents($file, $this->build_css);
 		}
 	}
 ?>

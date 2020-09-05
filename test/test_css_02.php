@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>Exemple #1</TITLE>
+<TITLE>Exemple #2</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 </HEAD>
 
@@ -21,11 +21,6 @@
 				$CSS64->css_minify = true;
 				$r = $CSS64->transform();
 		?>
-
-		<!--
-		[<?php echo strlen($r); ?>]
-		<textarea style="width:100%;height:250px;"><?php print($r); ?></textarea>
-		-->
 
 		<style>
 		<?php print($r); ?>

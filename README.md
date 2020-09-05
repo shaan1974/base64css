@@ -4,7 +4,7 @@ Get all ressources of css file (images,fonts...) and transform it into base64 to
 
 Exemples are in folder "test".
 
-**Quick Example :**
+**Example #1:**
 
 ```
 require_once "../css64/rhea_css64_class.php"; 
@@ -17,11 +17,32 @@ $CSS64->css_minify = true;
 $r = $CSS64->transform();
 ```
 
-**Not yet supported :**
+**Example #2:**
+
+```
+require_once "../css64/rhea_css64_class.php"; 
+
+$CSS64 = new Rhea_Css64();
+
+$CSS64->css_file = __DIR__. '/../data_css/css.css';
+$CSS64->css_minify = true;
+$CSS64->transform();
+
+$CSS64->save( __DIR__. '/../data_css_b64/css.css');
+```
+
+**Not yet supported / Todo:**
 
 @import
 
 **Versions :**
+
+1.3
+
+- Add save command. (see exemple #1)
+```
+$CSS64->save( __DIR__. '/../data_css_b64/css.css');
+```
 
 1.2
 
