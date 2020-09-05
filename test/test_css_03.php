@@ -15,20 +15,17 @@
 
 			<br/>
 			<b>IN WORK.</b>
-			<?php
+			<?php	
 					require_once "../css64/rhea_css64_class.php"; 
-					
-					/*
+
+					$CSS64 = new Rhea_Css64();
 					$CSS64->css_file = __DIR__. '/../data_css/css_with_import.css';
-					$CSS64->css_minify = true;
-					$r = $CSS64->transform();
-					*/
+					$CSS64->css_minify = false;
+					$r=$CSS64->transform();										
 			?>
 
-			<!--
-			[<?php echo strlen($r); ?>]
+
 			<textarea style="width:100%;height:250px;"><?php print($r); ?></textarea>
-			-->
 
 			<style>
 			<?php print($r); ?>

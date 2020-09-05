@@ -3,3 +3,8 @@
 }
 
 @import url("fineprint.css") print;
+@import url("fineprint.css") screen and (orientation:landscape);
+@import url('fineprint.css') print;
+@import url('fineprint.css') screen and (orientation:landscape);
+@import 'fineprint.css' print;
+@import 'extra_css/extra.css' screen and (orientation:landscape);

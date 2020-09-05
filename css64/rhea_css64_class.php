@@ -5,7 +5,7 @@
 	*/
 	class Rhea_Css64
 	{
-		private $version = "1.0";
+		private $version = "1.4";
 
 		private $array_data = array(
 	        "OET"		=> "data:application/octet-stream;",
@@ -79,8 +79,10 @@
 
 		function extract_css_urls( $text )
 		{
-		    $urls = array( );
-		 
+		    $urls = array();
+			
+			// $urls['property']= array();
+
 		    $url_pattern     = '(([^\\\\\'", \(\)]*(\\\\.)?)+)';
 		    $urlfunc_pattern = 'url\(\s*[\'"]?' . $url_pattern . '[\'"]?\s*\)';
 		    $pattern         = '/(' . '(@import\s*[\'"]' . $url_pattern     . '[\'"])' . '|(@import\s*'      . $urlfunc_pattern . ')'      . '|('                . $urlfunc_pattern . ')'      .  ')/iu';
@@ -122,6 +124,22 @@
 				$path_parts		= pathinfo( $this->css_file );
 				$current_path 	= str_replace("\\","/", getcwd() );
 				$css_base_dir 	= $path_parts["dirname"];
+
+				// echo $css_base_dir;
+				// die();
+	
+			//	@IMPORT
+			//
+				$re = '/(@import\s[url\(]*["\']((.*?).css)["\'][\)]*)(\s(aural|braillle|handheld|print|projection|screen|tty|tv|all)(.*?));/m';
+				preg_match_all($re, $css_content, $matches, PREG_SET_ORDER, 0);
+
+				for($cnt=0;$cnt<count($matches);$cnt++)
+				{
+					$z = str_replace( $matches[$cnt][1] , "@media", $matches[$cnt][0] );
+					$import_file = file_get_contents($css_base_dir."/".$matches[$cnt][2]);
+					$z = str_replace( ";" , "{\n\n ".$import_file."\n\n}", $z );
+					$css_content = str_replace( $matches[$cnt][0] , $z, $css_content );
+				}
 								
 			//	EXTRACT URLS
 			//
