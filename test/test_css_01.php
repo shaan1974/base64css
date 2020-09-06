@@ -12,8 +12,9 @@
 
         $CSS64 = new Rhea_Css64();
         $CSS64->css_file = __DIR__. '/../data_css/css.css';
-        $CSS64->css_minify = true;
-        $CSS64->transform();
+        $CSS64->css_minify = false;
+        $CSS64->rbg_to_hex=true;
+        $r=$CSS64->transform();
         $CSS64->save( __DIR__. '/../data_css_b64/css.css');
 ?>
 
@@ -25,6 +26,26 @@
 
         <div id="content" class="row">
 
+        <br/>
+        <div class="row">
+				<div class="col-md-6">
+					<b>BEFORE :</b>
+					<br/>
+					<br/>
+					<textarea style="width:100%;height:250px;font-size:12px"><?php echo file_get_contents(__DIR__. '/../data_css/css.css'); ?></textarea>
+				</div>
+				<div class="col-md-6">
+					<b>AFTER :</b>
+					<br/>
+					<br/>
+					<textarea style="width:100%;height:250px;font-size:12px"><?php print($r); ?></textarea>
+				</div>
+			</div>                
+        <br/>
+        COLOR 1 <span class="color1A">xxxx</span>
+        <br/>
+        COLOR 2 <span class="color2A">xxxx</span>
+        <br/>
         <br/>
         <table class="table table-striped table-bordered">
             <tr>

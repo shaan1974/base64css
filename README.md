@@ -15,6 +15,7 @@ $CSS64 = new Rhea_Css64();
 
 $CSS64->css_file = __DIR__. '/../data_css/css.css';
 $CSS64->css_minify = true;
+$CSS64->rbg_to_hex = true;
 
 $r = $CSS64->transform();
 ```
@@ -33,13 +34,39 @@ $CSS64->transform();
 $CSS64->save( __DIR__. '/../data_css_b64/css.css');
 ```
 
+**Variable:**
+
+- "css_file" : Where the file is located.
+
+**Methods:**
+
+- "transform" : To do the job.
+
+- "save" : To save the result of css tranformation into a file.
+
+**Configuration:**
+
+- "css_minify" : [true/false] Allow you to minify css.
+
+- "rbg_to_hex" : [true/false] Transform Rgb/Rgba color in Hex.
+
 **Not yet supported / Todo:**
 
-- Method to convert hex color to Rgb
-- Method to convert Rgb color to Hex
-- Method to convert named colors to Hex/Rgb
+- Method to convert named colors to Hex
 
 **Versions :**
+
+1.7
+
+Option to convert Rgb/Rgba Color to Hex.
+
+| Examples: |  |
+| --- | --- |
+| rgb( 0, 0, 0) |  #000000 |
+| rgb(50%, 0, 0) |  #7F0000 |
+| rgba( 0, 0, 0, 50%) |  #0000007f |
+| rgba( 0, 0, 0, 0.5) |  #0000007f |
+|  |  |
 
 1.6
 

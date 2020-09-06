@@ -1,3 +1,23 @@
+.color1A {
+    color: #000000;
+}
+
+.color1B {
+    color: #000000;
+}
+
+.color1C {
+    color: #7F0000;
+}
+
+.color2A {
+    color: #0000007f;
+}
+
+.color2B {
+    color: #0000007f;
+}
+
 .test1 {
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAlCAYAAAAjt+tHAAACOUlEQVRYhe2XsWrbUBRAj4QxsggJaCiBkOIu3kJdutR0rBI6tX9ROuYHSof2AzqXfkULXaSMwVOounooIVkyCRKMIoSROvg+9dmRY0tIMQVfeDzLMu8cXd2H3zWyLAPg8PCwBZhAW+YW9cYESIEESD3PmwAYWZYpeBuwZLRFwKwJnopAAsQyEs/zJobrugpuA9syWzSTgRiIgBuZE/WUlsAfBT1/WDN4JvojdyAfU2Cip94Oev6w2wXbBsuqFxzHEEUQ4A/7I/cAeQ164VnQDBzurKnqzFTVrkYj8AKJnKmqvK5qLxPmusB3LTYCG4GNwDqj0j/e7S2EIchRAsMAx4FOp/xalTIQhjB48pqT4wtOji940T0iDKusVFEgy+DTm6/s7uyzu7PP57ff8mw8iECdUUnAMODjj/dcXV9ydX3Jh+/vMIxqApWK0HHg9M9PXn15nAs5zgMKdDqwt1cNOB//Zw00IZCugZ0qgYk2iOPmiNraOdPkX7sUw/To3ISEOparS2GmLQ0e9UfuIKC4Mel2V99qYQjn58X3pDGJ0PqCVC5u5AcHzLZmJkCAfwrLJRS8P3JfyleqvuZbsxhIV2lO8zN80PPP7suEBn/ObG0tbk6XtOdq1tu3X0USGvwZWornBIrb8/tCxCxgS4Yd9PzfuoQGfyrwsYxYgRbFUoEFElsqEzDz5GNKwFcWKJDYFokzyN/5mGlxrQwvJTAnYctoy62EaeqjMvDSApqEKkq1VdUWS8rAAf4CVh8IwRn8EcEAAAAASUVORK5CYII=');
     background-repeat: no-repeat;

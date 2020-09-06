@@ -1,3 +1,23 @@
+.color1A {
+    color: rgb( 0, 0, 0);
+}
+
+.color1B {
+    color: rgb(0, 0, 0);
+}
+
+.color1C {
+    color: rgb(50%, 0, 0);
+}
+
+.color2A {
+    color: rgba( 0, 0, 0, 50%);
+}
+
+.color2B {
+    color: rgba( 0, 0, 0, 0.5);
+}
+
 .test1 {
     background: url('img/symbol_middot_green.png');
     background-repeat: no-repeat;

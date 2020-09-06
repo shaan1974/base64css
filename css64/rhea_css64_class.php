@@ -5,7 +5,7 @@
 	*/
 	class Rhea_Css64
 	{
-		private $version = "1.4";
+		private $version = "1.7";
 
 		private $array_data = array(
 	        "OET"		=> "data:application/octet-stream;",
@@ -25,8 +25,36 @@
 
 		public $css_file;
 		public $css_minify = false;
+		public $rbg_to_hex = false;
 
 		function __construct() {}
+
+		/*
+			CONVERT RGB AND RGBA COLOR TO HEX
+		*/
+		function RgbToHex($css)
+		{
+			$re = '/rgb[a]*\((.*?),(.*?),(.*?)(,(.*?))*\)/m';
+			preg_match_all($re, $css, $matches, PREG_SET_ORDER, 0);
+
+			for($cnt=0;$cnt<count($matches);$cnt++)
+			{
+				$r 		= ( strpos( $matches[$cnt][1] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][1]))) : $matches[$cnt][1];
+				$g 		= ( strpos( $matches[$cnt][2] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][2]))) : $matches[$cnt][2];
+				$b 		= ( strpos( $matches[$cnt][3] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][3]))) : $matches[$cnt][3];			
+				$color 	= strtoupper(sprintf("#%02x%02x%02x", $r, $g, $b));
+				
+				if ( count($matches[$cnt]) === 6 )
+				{
+					$o 		= trim($matches[$cnt][5]);
+					$o 		= (substr_compare( $o , "%", -strlen( "%" ) ) === 0 ) ? intval(str_replace("%","",$o))/100 : $o;
+					$color 	= $color."".dechex($o*255);
+				}				
+				$css = str_replace( $matches[$cnt][0] , $color , $css );
+			}
+
+			return $css;
+		}
 
 		/*
 	      	some of the following functions to minimize the css-output are directly taken
@@ -275,6 +303,14 @@
 
 			//	END LOOP
 			//
+
+			//	RGB(A) TO HEX COLOR
+			//
+				if ( $this->rbg_to_hex === true )
+				{
+					$css_content = $this->RgbToHex($css_content);
+				}
+
 			//	RETURN
 			//
 				$this->build_css = $css_content;
