@@ -14,6 +14,7 @@
         $CSS64->css_file = __DIR__. '/../data_css/css.css';
         $CSS64->css_minify = false;
         $CSS64->rbg_to_hex=true;
+        $CSS64->named_colors_to_hex=true;
         $r=$CSS64->transform();
         $CSS64->save( __DIR__. '/../data_css_b64/css.css');
 ?>
@@ -32,13 +33,13 @@
 					<b>BEFORE :</b>
 					<br/>
 					<br/>
-					<textarea style="width:100%;height:250px;font-size:12px"><?php echo file_get_contents(__DIR__. '/../data_css/css.css'); ?></textarea>
+					<textarea style="width:100%;height:350px;font-size:12px"><?php echo file_get_contents(__DIR__. '/../data_css/css.css'); ?></textarea>
 				</div>
 				<div class="col-md-6">
 					<b>AFTER :</b>
 					<br/>
 					<br/>
-					<textarea style="width:100%;height:250px;font-size:12px"><?php print($r); ?></textarea>
+					<textarea style="width:100%;height:350px;font-size:12px"><?php print($r); ?></textarea>
 				</div>
 			</div>                
         <br/>

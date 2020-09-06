@@ -50,11 +50,17 @@ $CSS64->save( __DIR__. '/../data_css_b64/css.css');
 
 - "rbg_to_hex" : [true/false] Transform Rgb/Rgba color in Hex.
 
+- "named_colors_to_hex" : [true/false] Convert named colors to hex values.
+
 **Not yet supported / Todo:**
 
-- Method to convert named colors to Hex
+Let me think about it :)
 
 **Versions :**
+
+1.8
+
+Convert named colors to hex values.
 
 1.7
 

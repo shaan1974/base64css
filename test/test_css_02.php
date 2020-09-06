@@ -39,6 +39,23 @@
 		</style>
 
 		<br/>
+        <div class="row">
+				<div class="col-md-6">
+					<b>BEFORE :</b>
+					<br/>
+					<br/>
+					<textarea style="width:100%;height:350px;font-size:12px"><?php echo file_get_contents(__DIR__. '/../data_css/webfontkit-titillium/stylesheet.css'); ?></textarea>
+				</div>
+				<div class="col-md-6">
+					<b>AFTER :</b>
+					<br/>
+					<br/>
+					<textarea style="width:100%;height:350px;font-size:12px"><?php print($r); ?></textarea>
+				</div>
+			</div>                
+        <br/>		
+
+		<br/>
 		<b>Text without custom font :</b>
 		<br/>
 		<br/>

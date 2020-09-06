@@ -18,6 +18,15 @@
     color: rgba( 0, 0, 0, 0.5);
 }
 
+.red {
+    color: red;
+}
+
+.palegoldenrod {
+    color: palegoldenrod;
+    background-color: red;
+}
+
 .test1 {
     background: url('img/symbol_middot_green.png');
     background-repeat: no-repeat;
