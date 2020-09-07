@@ -22,6 +22,10 @@
 				$r = $CSS64->transform();
 		?>
 
+        <br/>
+        <?php echo date("Y-m-d H:i:s"); ?>
+        <br/>
+
 		<style>
 		<?php print($r); ?>
 

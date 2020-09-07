@@ -1,8 +1,5 @@
 <?php
 	
-	/*
-		TO DO @IMPORT
-	*/
 	class Rhea_Css64
 	{
 		private $version = "1.7";
@@ -185,22 +182,37 @@
 
 		function replaceNamedColors($css)
 		{
-			$l=array();
+			/*
+			$l = array();
 
-			foreach ($this->named_colors as $key => $value) {
+			foreach ( $this->named_colors as $key => $value ) 
+			{
 				array_push($l,$key);
 			}
 
 			$l = implode("|",$l);
+			*/
+			$l 	= implode("|", array_keys($this->named_colors));
 			$re = '/[^#.a-z]('.$l.')/m';
+
 			preg_match_all($re, $css, $matches, PREG_SET_ORDER, 0);
 
-			for($cnt=0;$cnt<count($matches);$cnt++)
+			/*$n = $this->named_colors;
+			$r1 = array_map(function($matches) { return $matches[0]; }, $matches);
+			$r2 = array_map(function($r2) use($n) { return $n[trim($r2)]; }, $r1);			
+			return str_replace( $r1 , $r2 , $css );*/
+
+			for( $cnt=0 ; $cnt<count($matches) ; $cnt++ )
 			{
 				$css = str_replace( $matches[$cnt][0] , $this->named_colors["".$matches[$cnt][1].""] , $css );
 			}
-
+			
 			return $css;
+		}
+
+		function percentage($v)
+		{
+			return ( strpos( $v , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$v))) : $v;
 		}
 
 		function RgbToHex($css)
@@ -208,12 +220,18 @@
 			$re = '/rgb[a]*\((.*?),(.*?),(.*?)(,(.*?))*\)/m';
 			preg_match_all($re, $css, $matches, PREG_SET_ORDER, 0);
 
-			for($cnt=0;$cnt<count($matches);$cnt++)
+			for( $cnt=0 ; $cnt<count($matches) ; $cnt++ )
 			{
-				$r 		= ( strpos( $matches[$cnt][1] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][1]))) : $matches[$cnt][1];
-				$g 		= ( strpos( $matches[$cnt][2] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][2]))) : $matches[$cnt][2];
-				$b 		= ( strpos( $matches[$cnt][3] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][3]))) : $matches[$cnt][3];			
-				$color 	= strtoupper(sprintf("#%02x%02x%02x", $r, $g, $b));
+				// $r 		= ( strpos( $matches[$cnt][1] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][1]))) : $matches[$cnt][1];				
+				// $g 		= ( strpos( $matches[$cnt][2] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][2]))) : $matches[$cnt][2];
+				// $b 		= ( strpos( $matches[$cnt][3] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][3]))) : $matches[$cnt][3];
+				/*
+				$r 		= $this->percentage($matches[$cnt][1]);
+				$g 		= $this->percentage($matches[$cnt][2]);
+				$b 		= $this->percentage($matches[$cnt][3]);			
+				$color 	= strtoupper(sprintf("#%02x%02x%02x", $r, $g, $b) );
+				*/
+				$color 	= strtoupper(sprintf("#%02x%02x%02x", $this->percentage($matches[$cnt][1]), $this->percentage($matches[$cnt][2]), $this->percentage($matches[$cnt][3])) );
 				
 				if ( count($matches[$cnt]) === 6 )
 				{
@@ -275,30 +293,12 @@
 		{
 		    $urls = array();
 			
-			// $urls['property']= array();
-
 		    $url_pattern     = '(([^\\\\\'", \(\)]*(\\\\.)?)+)';
 		    $urlfunc_pattern = 'url\(\s*[\'"]?' . $url_pattern . '[\'"]?\s*\)';
 		    $pattern         = '/(' . '(@import\s*[\'"]' . $url_pattern     . '[\'"])' . '|(@import\s*'      . $urlfunc_pattern . ')'      . '|('                . $urlfunc_pattern . ')'      .  ')/iu';
 		    if ( !preg_match_all( $pattern, $text, $matches ) )
 		        return $urls;
 		 
-		    // @import '...'
-		    // @import "..."
-		    /*foreach ( $matches[3] as $match )
-		        if ( !empty($match) )
-		            $urls['import'][] = preg_replace( '/\\\\(.)/u', '\\1', $match );*/
-		 
-		    // @import url(...)
-		    // @import url('...')
-		    // @import url("...")
-		    /*foreach ( $matches[7] as $match )
-		        if ( !empty($match) )
-		            $urls['import'][] =  preg_replace( '/\\\\(.)/u', '\\1', $match );*/
-		 
-		    // url(...)
-		    // url('...')
-		    // url("...")
 		    foreach ( $matches[11] as $match )
 		        if ( !empty($match) )
 		            $urls['property'][] =  preg_replace( '/\\\\(.)/u', '\\1', $match );
@@ -310,34 +310,29 @@
 		{
 			//	IN CASE OF LOCAL PATH WITH WINDOWS WE REPLACE THE \ WITH /
 			//
-				$this->css_file = str_replace("\\","/", $this->css_file  );
+				$this->css_file 	= str_replace("\\","/", $this->css_file  );
 
 			//	LOAD CSS CONTENT FILE
 			//
-				$css_content 	= file_get_contents($this->css_file);
-				$path_parts		= pathinfo( $this->css_file );
-				// $current_path 	= str_replace("\\","/", getcwd() );
-				$css_base_dir 	= $path_parts["dirname"];
+				$this->build_css 	= file_get_contents($this->css_file);
+				$path_parts			= pathinfo( $this->css_file );
+				$css_base_dir 		= $path_parts["dirname"];
 	
 			//	@IMPORT
 			//
 				$re = '/(@import\s[url\(]*["\']((.*?).css)["\'][\)]*)(\s(aural|braillle|handheld|print|projection|screen|tty|tv|all)(.*?));/m';
-				preg_match_all($re, $css_content, $matches, PREG_SET_ORDER, 0);
+				preg_match_all($re, $this->build_css, $matches, PREG_SET_ORDER, 0);
 
 				for($cnt=0;$cnt<count($matches);$cnt++)
 				{
 					//	CREATE VARIABLE FOR NEW MEDIA CONTAINER
 					//
 						$z = str_replace( $matches[$cnt][1] , "@media", $matches[$cnt][0] );					
-						// $import_file = file_get_contents($css_base_dir."/".$matches[$cnt][2]);
 					
-					/* --- */
 					//	GET REAL PATH
 					//
-						// echo "<br/>OLD - ".$css_base_dir."/".$matches[$cnt][2];
 						$path_parts = realpath($css_base_dir."/".$matches[$cnt][2]);
 						$path_parts = str_replace("\\","/", $path_parts  );
-						// echo "<br>NEW - (".$path_parts.")<br/>";
 					
 					//	APPLY CLASS CSS64 ON LINK FROM IMPORT
 					//
@@ -346,17 +341,15 @@
 						$CSS64_INSIDE->css_minify = false;
 						$import_file="\n".$CSS64_INSIDE->transform();
 
-					/* --- */
-
 					//	REPLACE THE @IMPORT DECLARATION WITH @MEDIA (XXX) AND CONTENT CSS
 					//
 						$z = str_replace( ";" , "{\n\n ".$import_file."\n\n}", $z );
-						$css_content = str_replace( $matches[$cnt][0] , $z, $css_content );
+						$this->build_css = str_replace( $matches[$cnt][0] , $z, $this->build_css );
 				}
 								
 			//	EXTRACT URLS
 			//
-				$urls = $this->extract_css_urls($css_content);
+				$urls = $this->extract_css_urls($this->build_css);
 				
 			//	LOOP
 			//	
@@ -364,19 +357,15 @@
 				{
 					$original_url 	= $urls[$cnt];
 					//
-					//	IF STARTWITH "/"
+					//	IF NOT STARTING STARTWITH "http"
 					//
 					//	background: url('/twig_test/data_images/symbol_middot_green.png')
+					//	background: url('img/symbol_middot_green.png')
+					//	background: url('../data_images/bird.png');					
 					//
-						/*
-						if ( (strpos($urls[$cnt], "/") === 0) )
-						{						
-							$ext_ressource 	= file_get_contents( $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt] );
-							$path_parts 	= pathinfo( $original_url );
-						}
-						*/
 						if ( strpos( $urls[$cnt] , "http") !== 0 )
-						{						
+						{			
+							/*			
 							if ( strpos($urls[$cnt], "/") === 0 )
 							{
 								$urls[$cnt] = $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt];
@@ -385,6 +374,10 @@
 							{
 								$urls[$cnt] = realpath( $css_base_dir."/".$urls[$cnt] );
 							}
+							*/
+
+							$urls[$cnt] 	= ( strpos($urls[$cnt], "/") === 0 ) ? $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt] : realpath( $css_base_dir."/".$urls[$cnt] );
+
 							$ext_ressource 	= file_get_contents( ($urls[$cnt]) );
 							$path_parts 	= pathinfo( $original_url );
 						}
@@ -412,54 +405,21 @@
 					        $ext_ressource = curl_exec($ch);
 
 					        //Close the cURL handle.
-					        curl_close($ch);
-
-					        $path_parts = array('extension' => 'png');
-						}
-					//
-					//	OTHERS CASE ../ OR NOTHING
-					//
-					//	background: url('img/symbol_middot_green.png')
-					//	background: url('../data_images/bird.png');
-					//	
-						else
-						{
-							//	USELESS CODE
-							/*
-							$new_url 			= [];
-							$urls[$cnt] 		= explode("/",$urls[$cnt]);	
-							$tmp_css_base_dir 	= explode("/",$css_base_dir);
-
-							for( $cnt2=0;$cnt2<count($urls[$cnt]);$cnt2++ )
-							{
-								//	IF WE HAVE TO GO UP IN THE PATH WE REMOVE THE LAST ENTRY INTO $TMP_CSS_BASE_DIR
-								//
-								if ( $urls[$cnt][$cnt2] === ".." )
-								{
-									array_pop( $tmp_css_base_dir );
-								}
-								else
-								{
-									array_push( $new_url ,$urls[$cnt][$cnt2] );
-								}
-							}
-
-							$pop_url 		= implode("/",$new_url);
-							$base_dir 		= implode("/",$tmp_css_base_dir);
-							$ext_ressource 	= file_get_contents( $base_dir."/".$pop_url );
-							$path_parts 	= pathinfo( $base_dir."/".$pop_url );
-							*/
+							curl_close($ch);
+							
+					        $path_parts = array('extension' => substr(strrchr($urls[$cnt], '.'), 1) );
 						}
 
 						$file_ext = strtoupper($path_parts['extension']);
 
 						//	CHECK IF EXTENSION EXIST IN ARRAY_DATA
 						//
-							$key = array_key_exists( $file_ext, $this->array_data );
+							// $key = array_key_exists( $file_ext, $this->array_data );
 
 						//	IF YES
 						//
-							if ( $key === true  )
+							// if ( $key === true  )
+							if ( array_key_exists( $file_ext, $this->array_data ) === true  )
 							{
 								//	TRANSFORM THE CURRENT RESSOURCE IN BINARY 64
 						        //	SET CORRECT STRING URI DATA RELATED TO THE EXTENSION TYPE
@@ -468,7 +428,7 @@
 
 						        //	REPLACE CSS CONTENT WITH DATA URI
 						        //
-						        	$css_content = str_replace( $original_url , $base64 , $css_content );		
+						        	$this->build_css = str_replace( $original_url , $base64 , $this->build_css );		
 							}
 				}
 
@@ -477,22 +437,26 @@
 
 			//	RGB(A) TO HEX COLOR
 			//
+				$this->build_css = ( $this->rbg_to_hex === true ) ? $this->RgbToHex($this->build_css) : $this->build_css;
+				/*
 				if ( $this->rbg_to_hex === true )
 				{
-					$css_content = $this->RgbToHex($css_content);
+					$this->build_css = $this->RgbToHex($this->build_css);
 				}
+				*/
 
 			//	REPLACE NAMED COLOR
 			//
+				/*
 				if ( $this->named_colors_to_hex === true )
 				{
-					$css_content = $this->replaceNamedColors($css_content);
+					$this->build_css = $this->replaceNamedColors($this->build_css);
 				}
+				*/
+				$this->build_css = ( $this->named_colors_to_hex === true ) ? $this->replaceNamedColors($this->build_css) : $this->build_css;
 
 			//	RETURN
 			//
-				$this->build_css = $css_content;
-				
 				return ( $this->css_minify === true ) ? $this->minifyCss($this->build_css) : $this->build_css;
 		}
 

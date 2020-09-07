@@ -28,6 +28,9 @@
         <div id="content" class="row">
 
         <br/>
+        <?php echo date("Y-m-d H:i:s"); ?>
+        <br/>
+        <br/>
         <div class="row">
 				<div class="col-md-6">
 					<b>BEFORE :</b>

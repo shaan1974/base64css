@@ -58,6 +58,16 @@ Let me think about it :)
 
 **Versions :**
 
+2.0
+
+Code optimisation.
+
+Bug in Curl call the extension was always defined as PNG.
+
+1.9
+
+Code optimisation.
+
 1.8
 
 Convert named colors to hex values.

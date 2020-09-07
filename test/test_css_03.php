@@ -14,6 +14,10 @@
         <div id="content" class="row">
 
 			<br/>
+			<?php echo date("Y-m-d H:i:s"); ?>
+			<br/>
+			<br/>
+			
 			<?php	
 					require_once "../css64/rhea_css64_class.php"; 
 
