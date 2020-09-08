@@ -20,155 +20,27 @@
 
 		private $named_colors = array(
 			/* 	RED 	*/
-			"lightsalmon" 			=> "#FFA07A",
-			"salmon" 				=> "#FA8072",
-			"darksalmon" 			=> "#E9967A",
-			"lightcoral" 			=> "#F08080",
-			"indianred" 			=> "#CD5C5C",
-			"crimson" 				=> "#DC143C",
-			"firebrick" 			=> "#B22222",
-			"red" 					=> "#FF0000",
-			"darkred" 				=> "#8B0000",
+			"lightsalmon" => "#FFA07A", "salmon" => "#FA8072", "darksalmon" => "#E9967A", "lightcoral" => "#F08080", "indianred" => "#CD5C5C", "crimson" => "#DC143C", "firebrick" => "#B22222", "red" => "#FF0000", "darkred" => "#8B0000",
 			/*	ORANGE	*/
-			"coral" 				=> "#FF7F50",
-			"tomato" 				=> "#FF6347",
-			"orangered" 			=> "#FF4500",
-			"gold" 					=> "#FFD700",
-			"orange" 				=> "#FFA500",
-			"darkorange" 			=> "#FF8C00",
+			"coral" => "#FF7F50", "tomato" => "#FF6347", "orangered" => "#FF4500", "gold" => "#FFD700", "orange" => "#FFA500", "darkorange" => "#FF8C00",
 			/*	YELLOW	*/
-			"lightyellow" 			=> "#FFFFE0",
-			"lemonchiffon" 			=> "#FFFACD",
-			"lightgoldenrodyellow" 	=> "##FAFAD2",
-			"papayawhip" 			=> "#FFEFD5",
-			"moccasin" 				=> "#FFE4B5",
-			"peachpuff" 			=> "#FFDAB9",
-			"palegoldenrod" 		=> "#EEE8AA",
-			"khaki" 				=> "#F0E68C",
-			"darkkhaki" 			=> "#BDB76B",
-			"yellow"	 			=> "#FFFF00",
+			"lightyellow" => "#FFFFE0", "lemonchiffon" => "#FFFACD", "lightgoldenrodyellow" => "##FAFAD2", "papayawhip" => "#FFEFD5", "moccasin" => "#FFE4B5", "peachpuff" => "#FFDAB9", "palegoldenrod" => "#EEE8AA", "khaki" => "#F0E68C", "darkkhaki" => "#BDB76B", "yellow" => "#FFFF00",
 			/*	GREEN	*/
-			"lawngreen" 			=> "#7CFC00",
-			"chartreuse"			=> "#7FFF00",
-			"limegreen"		 		=> "#32CD32",
-			"lime" 					=> "#00FF00",
-			"forestgreen" 			=> "#228B22",
-			"green" 				=> "#008000",
-			"darkgreen" 			=> "#006400",
-			"greenyellow" 			=> "#ADFF2F",
-			"yellowgreen" 			=> "#9ACD32",
-			"springgreen" 			=> "#00FF7F",
-			"mediumspringgreen" 	=> "#00FA9A",
-			"lightgreen" 			=> "#90EE90",
-			"palegreen" 			=> "#98FB98",
-			"darkseagreen" 			=> "#8FBC8F",
-			"mediumseagreen" 		=> "#3CB371",
-			"seagreen" 				=> "#2E8B57",
-			"olive" 				=> "#808000",
-			"darkolivegreen" 		=> "#556B2F",
-			"olivedrab" 			=> "#6B8E23",
+			"lawngreen" => "#7CFC00", "chartreuse" => "#7FFF00", "limegreen" => "#32CD32", "lime" => "#00FF00", "forestgreen" => "#228B22", "green" => "#008000", "darkgreen" => "#006400", "greenyellow" => "#ADFF2F", "yellowgreen" => "#9ACD32", "springgreen" => "#00FF7F", "mediumspringgreen" => "#00FA9A", "lightgreen" => "#90EE90", "palegreen" => "#98FB98", "darkseagreen" => "#8FBC8F", "mediumseagreen" => "#3CB371", "seagreen" => "#2E8B57", "olive" => "#808000", "darkolivegreen" => "#556B2F", "olivedrab" => "#6B8E23",
 			/*	CYAN 	*/
-			"lightcyan" 			=> "#E0FFFF",
-			"cyan" 					=> "#00FFFF",
-			"aqua" 					=> "#00FFFF",
-			"aquamarine" 			=> "#7FFFD4",
-			"mediumaquamarine" 		=> "#66CDAA",
-			"paleturquoise"	 		=> "#AFEEEE",
-			"turquoise" 			=> "#40E0D0",
-			"mediumturquoise" 		=> "#48D1CC",
-			"darkturquoise" 		=> "#00CED1",
-			"lightseagreen" 		=> "#20B2AA",
-			"cadetblue" 			=> "#5F9EA0",
-			"darkcyan" 				=> "#008B8B",
-			"teal" 					=> "#008080",
+			"lightcyan" => "#E0FFFF", "cyan" => "#00FFFF", "aqua" => "#00FFFF", "aquamarine" => "#7FFFD4", "mediumaquamarine" => "#66CDAA", "paleturquoise" => "#AFEEEE", "turquoise" => "#40E0D0", "mediumturquoise" => "#48D1CC", "darkturquoise" => "#00CED1", "lightseagreen" => "#20B2AA", "cadetblue" => "#5F9EA0", "darkcyan" => "#008B8B", "teal" => "#008080",
 			/*	BLUE	*/
-			"powderblue" 			=> "#B0E0E6",
-			"lightblue" 			=> "#ADD8E6",
-			"lightskyblue" 			=> "#87CEFA",
-			"skyblue" 				=> "#87CEEB",
-			"deepskyblue" 			=> "#00BFFF",
-			"lightsteelblue" 		=> "#B0C4DE",
-			"dodgerblue" 			=> "#1E90FF",
-			"cornflowerblue" 		=> "#6495ED",
-			"steelblue" 			=> "#4682B4",
-			"royalblue" 			=> "#4169E1",
-			"blue" 					=> "#0000FF",
-			"mediumblue" 			=> "#0000CD",
-			"darkblue" 				=> "#00008B",
-			"navy" 					=> "#000080",
-			"midnightblue" 			=> "#191970",
-			"mediumslateblue" 		=> "#7B68EE",
-			"slateblue" 			=> "#6A5ACD",
-			"darkslateblue" 		=> "#483D8B",
+			"powderblue" => "#B0E0E6", "lightblue" => "#ADD8E6", "lightskyblue" => "#87CEFA", "skyblue" => "#87CEEB", "deepskyblue" => "#00BFFF", "lightsteelblue" => "#B0C4DE", "dodgerblue" => "#1E90FF", "cornflowerblue" => "#6495ED", "steelblue" => "#4682B4", "royalblue" => "#4169E1", "blue" => "#0000FF", "mediumblue" => "#0000CD", "darkblue" => "#00008B", "navy" => "#000080", "midnightblue" => "#191970", "mediumslateblue" => "#7B68EE", "slateblue" => "#6A5ACD", "darkslateblue" => "#483D8B",
 			/*	PURPLE	*/
-			"lavender" 				=> "#E6E6FA",
-			"thistle" 				=> "#D8BFD8",
-			"plum" 					=> "#DDA0DD",
-			"violet" 				=> "#EE82EE",
-			"orchid" 				=> "#DA70D6",
-			"fuchsia" 				=> "#FF00FF",
-			"magenta" 				=> "#FF00FF",
-			"mediumorchid" 			=> "#BA55D3",
-			"mediumpurple" 			=> "#9370DB",
-			"blueviolet" 			=> "#8A2BE2",
-			"darkviolet" 			=> "#9400D3",
-			"darkorchid"	 		=> "#9932CC",
-			"darkmagenta" 			=> "#8B008B",
-			"purple" 				=> "#800080",
-			"indigo" 				=> "#4B0082",
+			"lavender" => "#E6E6FA", "thistle" => "#D8BFD8", "plum" => "#DDA0DD", "violet" => "#EE82EE", "orchid" => "#DA70D6", "fuchsia" => "#FF00FF", "magenta" => "#FF00FF", "mediumorchid" => "#BA55D3", "mediumpurple" => "#9370DB", "blueviolet" => "#8A2BE2", "darkviolet" => "#9400D3", "darkorchid" => "#9932CC", "darkmagenta" => "#8B008B", "purple" => "#800080", "indigo" => "#4B0082",
 			/*	PINK	*/
-			"pink" 					=> "#FFC0CB",
-			"lightpink" 			=> "#FFB6C1",
-			"hotpink"				=> "#FF69B4",
-			"deeppink" 				=> "#FF1493",
-			"palevioletred" 		=> "#DB7093",
-			"mediumvioletred" 		=> "#C71585",
+			"pink" => "#FFC0CB", "lightpink" => "#FFB6C1", "hotpink" => "#FF69B4", "deeppink" => "#FF1493", "palevioletred" => "#DB7093", "mediumvioletred" => "#C71585",
 			/*	WHITE	*/
-			"white" 				=> "#FFFFFF",
-			"snow" 					=> "#FFFAFA",
-			"honeydew" 				=> "#F0FFF0",
-			"mintcream" 			=> "#F5FFFA",
-			"azure" 				=> "#F0FFFF",
-			"aliceblue" 			=> "#F0F8FF",
-			"ghostwhite" 			=> "#F8F8FF",
-			"whitesmoke" 			=> "#F5F5F5",
-			"seashell" 				=> "#FFF5EE",
-			"beige" 				=> "#F5F5DC",
-			"oldlace" 				=> "#FDF5E6",
-			"floralwhite" 			=> "#FFFAF0",
-			"ivory" 				=> "#FFFFF0",
-			"antiquewhite" 			=> "#FAEBD7",
-			"linen" 				=> "#FAF0E6",
-			"lavenderblush" 		=> "#FFF0F5",
-			"mistyrose" 			=> "#FFE4E1",
+			"white" => "#FFFFFF", "snow" => "#FFFAFA", "honeydew" => "#F0FFF0", "mintcream" => "#F5FFFA", "azure" => "#F0FFFF", "aliceblue" => "#F0F8FF", "ghostwhite" => "#F8F8FF", "whitesmoke" => "#F5F5F5", "seashell" => "#FFF5EE", "beige" => "#F5F5DC", "oldlace" => "#FDF5E6", "floralwhite" => "#FFFAF0", "ivory" => "#FFFFF0", "antiquewhite" => "#FAEBD7", "linen" => "#FAF0E6", "lavenderblush" => "#FFF0F5", "mistyrose" => "#FFE4E1",
 			/*	GRAY	*/
-			"gainsboro" 			=> "#DCDCDC",
-			"lightgray" 			=> "#D3D3D3",
-			"silver" 				=> "#C0C0C0",
-			"darkgray"	 			=> "#A9A9A9",
-			"gray" 					=> "#808080",
-			"dimgray" 				=> "#696969",
-			"lightslategray" 		=> "#778899",
-			"slategray" 			=> "#708090",
-			"darkslategray" 		=> "#2F4F4F",
-			"black" 				=> "#000000",
+			"gainsboro" => "#DCDCDC", "lightgray" => "#D3D3D3", "silver" => "#C0C0C0", "darkgray" => "#A9A9A9", "gray" => "#808080", "dimgray" => "#696969", "lightslategray" => "#778899", "slategray" => "#708090", "darkslategray" => "#2F4F4F", "black" => "#000000",
 			/*	BROWN	*/
-			"cornsilk" 				=> "#FFF8DC",
-			"blanchedalmond" 		=> "#FFEBCD",
-			"bisque" 				=> "#FFE4C4",
-			"navajowhite" 			=> "#FFDEAD",
-			"wheat" 				=> "#F5DEB3",
-			"burlywood" 			=> "#DEB887",
-			"tan" 					=> "#D2B48C",
-			"rosybrown" 			=> "#BC8F8F",
-			"sandybrown" 			=> "#F4A460",
-			"goldenrod"	 			=> "#DAA520",
-			"peru" 					=> "#CD853F",
-			"chocolate" 			=> "#D2691E",
-			"saddlebrown" 			=> "#8B4513",
-			"sienna"		 		=> "#A0522D",
-			"brown" 				=> "#A52A2A",
-			"maroon" 				=> "#800000"
+			"cornsilk" => "#FFF8DC", "blanchedalmond" => "#FFEBCD", "bisque" => "#FFE4C4", "navajowhite" => "#FFDEAD", "wheat" => "#F5DEB3", "burlywood" => "#DEB887", "tan" => "#D2B48C", "rosybrown" => "#BC8F8F", "sandybrown" => "#F4A460", "goldenrod" => "#DAA520", "peru" => "#CD853F", "chocolate" => "#D2691E", "saddlebrown" => "#8B4513", "sienna" => "#A0522D", "brown" => "#A52A2A", "maroon" => "#800000"
 		);
 		
 		private $build_css = "";
@@ -182,16 +54,6 @@
 
 		function replaceNamedColors($css)
 		{
-			/*
-			$l = array();
-
-			foreach ( $this->named_colors as $key => $value ) 
-			{
-				array_push($l,$key);
-			}
-
-			$l = implode("|",$l);
-			*/
 			$l 	= implode("|", array_keys($this->named_colors));
 			$re = '/[^#.a-z]('.$l.')/m';
 
@@ -222,15 +84,6 @@
 
 			for( $cnt=0 ; $cnt<count($matches) ; $cnt++ )
 			{
-				// $r 		= ( strpos( $matches[$cnt][1] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][1]))) : $matches[$cnt][1];				
-				// $g 		= ( strpos( $matches[$cnt][2] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][2]))) : $matches[$cnt][2];
-				// $b 		= ( strpos( $matches[$cnt][3] , "%") !== '' )  ? intval((255/100)*intval(str_replace("%","",$matches[$cnt][3]))) : $matches[$cnt][3];
-				/*
-				$r 		= $this->percentage($matches[$cnt][1]);
-				$g 		= $this->percentage($matches[$cnt][2]);
-				$b 		= $this->percentage($matches[$cnt][3]);			
-				$color 	= strtoupper(sprintf("#%02x%02x%02x", $r, $g, $b) );
-				*/
 				$color 	= strtoupper(sprintf("#%02x%02x%02x", $this->percentage($matches[$cnt][1]), $this->percentage($matches[$cnt][2]), $this->percentage($matches[$cnt][3])) );
 				
 				if ( count($matches[$cnt]) === 6 )
@@ -290,7 +143,14 @@
 			https://github.com/jrphub/elgoog/blob/master/extract_css_urls.php
 		*/
 		function extract_css_urls( $text )
-		{
+		{			
+			$re = '/[:,]\s*url\([^data]["\']*(.*?)["\']*\)/m';
+			preg_match_all($re, $text, $matches, PREG_SET_ORDER, 0);
+
+			$r1 = array_map(function($matches) { return $matches[1]; }, $matches);
+
+			return $r1;
+
 		    $urls = array();
 			
 		    $url_pattern     = '(([^\\\\\'", \(\)]*(\\\\.)?)+)';
@@ -303,6 +163,12 @@
 		        if ( !empty($match) )
 		            $urls['property'][] =  preg_replace( '/\\\\(.)/u', '\\1', $match );
 		 
+			// return $urls["property"];
+
+			
+			print("<pre>");
+			print_r($urls["property"]);
+			print("</pre>");
 			return $urls["property"];
 		}	
 
@@ -350,7 +216,7 @@
 			//	EXTRACT URLS
 			//
 				$urls = $this->extract_css_urls($this->build_css);
-				
+
 			//	LOOP
 			//	
 				for( $cnt=0;$cnt<count($urls);$cnt++ )
@@ -363,21 +229,15 @@
 					//	background: url('img/symbol_middot_green.png')
 					//	background: url('../data_images/bird.png');					
 					//
-						if ( strpos( $urls[$cnt] , "http") !== 0 )
+						if ( strpos( $urls[$cnt] , "data:") === 0 )
+						{
+							$path_parts = array('extension' => "WAZA" );
+						}
+						else if ( strpos( $urls[$cnt] , "http") !== 0 )
 						{			
-							/*			
-							if ( strpos($urls[$cnt], "/") === 0 )
-							{
-								$urls[$cnt] = $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt];
-							}
-							else
-							{
-								$urls[$cnt] = realpath( $css_base_dir."/".$urls[$cnt] );
-							}
-							*/
-
+							// echo "<br/>url before ".$urls[$cnt];
 							$urls[$cnt] 	= ( strpos($urls[$cnt], "/") === 0 ) ? $_SERVER["DOCUMENT_ROOT"]."".$urls[$cnt] : realpath( $css_base_dir."/".$urls[$cnt] );
-
+							// echo "<br/>url after ".$urls[$cnt]."<br/><br/>";
 							$ext_ressource 	= file_get_contents( ($urls[$cnt]) );
 							$path_parts 	= pathinfo( $original_url );
 						}
@@ -412,13 +272,8 @@
 
 						$file_ext = strtoupper($path_parts['extension']);
 
-						//	CHECK IF EXTENSION EXIST IN ARRAY_DATA
+						//	IF ARRAY KEY EXIST
 						//
-							// $key = array_key_exists( $file_ext, $this->array_data );
-
-						//	IF YES
-						//
-							// if ( $key === true  )
 							if ( array_key_exists( $file_ext, $this->array_data ) === true  )
 							{
 								//	TRANSFORM THE CURRENT RESSOURCE IN BINARY 64
@@ -438,21 +293,9 @@
 			//	RGB(A) TO HEX COLOR
 			//
 				$this->build_css = ( $this->rbg_to_hex === true ) ? $this->RgbToHex($this->build_css) : $this->build_css;
-				/*
-				if ( $this->rbg_to_hex === true )
-				{
-					$this->build_css = $this->RgbToHex($this->build_css);
-				}
-				*/
 
 			//	REPLACE NAMED COLOR
 			//
-				/*
-				if ( $this->named_colors_to_hex === true )
-				{
-					$this->build_css = $this->replaceNamedColors($this->build_css);
-				}
-				*/
 				$this->build_css = ( $this->named_colors_to_hex === true ) ? $this->replaceNamedColors($this->build_css) : $this->build_css;
 
 			//	RETURN

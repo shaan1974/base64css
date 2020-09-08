@@ -58,6 +58,14 @@ Let me think about it :)
 
 **Versions :**
 
+2.2
+
+Replace the code for the background url.
+
+2.1
+
+Wiki page.
+
 2.0
 
 Code optimisation.
